@@ -4,7 +4,7 @@ import Link from 'next/link';
 const page = () => {
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center">
-      <h1>Alege-ti mistery egg-ul!</h1>
+      <h1>Alege-ti mistery egg-ul! Fa click pe produs pentru informatii.</h1>
       <div>
         <ul>
           <li>
