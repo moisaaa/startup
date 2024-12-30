@@ -3,6 +3,18 @@ import GoldEgg from '../goldegg.png';
 import PoopEgg from '../poopegg.png';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+
+const imgs = [
+  <Image key={1} src={GoldEgg} width={400} alt="gold"></Image>,
+  <Image key={2} src={PoopEgg} width={400} alt="poop"></Image>,
+];
 
 const page = () => {
   return (
@@ -16,9 +28,18 @@ const page = () => {
           <li>Spargi oul si vezi ce ai castigat.</li>
         </ol>
       </div>
-      <div className="flex w-screen justify-around pt-10">
-        <Image src={GoldEgg} width={400} alt="gold"></Image>
-        <Image src={PoopEgg} width={400} alt="poop"></Image>
+      <div>
+        <Carousel>
+          <CarouselContent>
+            {Array.from({ length: 2 }).map((_, index) => (
+              <CarouselItem className="flex justify-center" key={index}>
+                {imgs[index]}
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
       <Link href={'/prices'}>
         <Button>&gt;</Button>
